@@ -1,0 +1,37 @@
+
+<div class="container">
+  <div class="jumbotron text-center">
+    <h1>Todos&nbsp;<span class="label label-info">{{todos.length}}</span></h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Todos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="var todo of todos">
+            <td>
+              <input type="checkbox" on-click="deleteTodo(todo._id)" bind-checked="false"/>&nbsp;&nbsp;
+              {{todo.text}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <form on-ngSubmit="createTodo()">
+        <div class="form-group">
+          <input type="text" placeholder="What to do next?" bindon-ngModel="todoData.text" required="required" class="form-control input-lg text-center"/>
+        </div>
+        <div class="form-group text-center"><br/>
+          <button type="submit" class="btn btn-success btn-lg">Do Something</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
